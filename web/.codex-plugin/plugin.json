@@ -1,18 +1,18 @@
 {
-  "name": "web-foundations",
+  "name": "foundations.web",
   "version": "0.1.0",
   "description": "Framework-neutral foundations for maintainable HTML, CSS, and browser JavaScript.",
   "author": {
-    "name": "Project Foundations contributors"
+    "name": "Foundations contributors"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "Web Foundations",
+    "displayName": "Foundations: Web",
     "shortDescription": "Build maintainable HTML, CSS, and browser JavaScript.",
     "longDescription": "Web Foundations provides practical, framework-neutral guidance for semantic HTML, maintainable responsive CSS, and reliable browser-side JavaScript.",
-    "developerName": "Project Foundations contributors",
+    "developerName": "Foundations contributors",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Apply Web Foundations to this web project."
+    "defaultPrompt": "Apply Foundations: Web to this web project."
   }
 }

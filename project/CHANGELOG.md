@@ -4,6 +4,10 @@ All notable changes to this package are recorded here.
 
 ## [Unreleased]
 
+### Changed
+
+- Renamed the package root to `project/` and portable package identifier to `foundations.project` before fresh-client installation or publication.
+
 ### Added
 
 - Package release policy, semantic versioning rules, and an explicit pending installation smoke test.

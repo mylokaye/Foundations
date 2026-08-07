@@ -1,4 +1,4 @@
-# Project Foundations Agent Plugin Library
+# Foundations Agent Plugin Library
 
 Portable, opinionated Agent Plugins for consistent project delivery and future plugin authoring.
 
@@ -8,15 +8,15 @@ Portable, opinionated Agent Plugins for consistent project delivery and future p
 
 | Package | Purpose | Source |
 | --- | --- | --- |
-| [`project-foundations`](project-foundations/) | Technology-neutral practices for documentation, design, accessibility, privacy, verification, and scoped delivery. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/project-foundations) |
-| [`agent-plugin-authoring`](agent-plugin-authoring/) | A focused workflow for creating, validating, and releasing portable Agent Plugins. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/agent-plugin-authoring) |
-| [`web-foundations`](web-foundations/) | Framework-neutral HTML, CSS, and browser JavaScript practices for maintainable web interfaces. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/web-foundations) |
+| [`foundations.project`](project/) | Technology-neutral practices for documentation, design, accessibility, privacy, verification, and scoped delivery. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/project) |
+| [`foundations.authoring`](authoring/) | A focused workflow for creating, validating, and releasing portable Agent Plugins. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/authoring) |
+| [`foundations.web`](web/) | Framework-neutral HTML, CSS, and browser JavaScript practices for maintainable web interfaces. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/web) |
 
 The packages intentionally keep universal practices separate from platform-specific implementation. They do not prescribe a frontend framework, native UI toolkit, cloud provider, or deployment system.
 
 ## Release status
 
-| Check | `project-foundations` | `agent-plugin-authoring` | `web-foundations` |
+| Check | `foundations.project` | `foundations.authoring` | `foundations.web` |
 | --- | --- | --- | --- |
 | Package structure validated | Complete | Complete | Complete |
 | License | MIT | MIT | MIT |
@@ -33,11 +33,11 @@ Clone the repository, then select the individual package directory in the suppor
 git clone https://github.com/mylokaye/project-foundations.git
 ```
 
-Install one package at a time from `project-foundations/`, `agent-plugin-authoring/`, or `web-foundations/`. The client-specific installation command will be added after it has been verified in a fresh client context.
+Install one package at a time from `project/`, `authoring/`, or `web/`. The client-specific installation command will be added after it has been verified in a fresh client context.
 
 ## Included skills
 
-### `project-foundations`
+### `foundations.project`
 
 - `project-documentation` — establish and maintain useful project documentation and brief changelogs.
 - `design-principles` — apply clear, adaptable, consistent interface design.
@@ -46,11 +46,11 @@ Install one package at a time from `project-foundations/`, `agent-plugin-authori
 - `quality-verification` — choose proportionate evidence for changes.
 - `change-delivery` — make scoped changes and report their state honestly.
 
-### `agent-plugin-authoring`
+### `foundations.authoring`
 
 - `author-agent-plugins` — create and maintain portable Agent Plugins, including package boundaries, portable and Codex manifests, validation, and release readiness.
 
-### `web-foundations`
+### `foundations.web`
 
 - `semantic-html` — build accessible, resilient document and form structure with native HTML first, using comments only for non-obvious decisions.
 - `css-systems` — create maintainable responsive CSS through tokens, composition, and predictable states.
@@ -58,7 +58,7 @@ Install one package at a time from `project-foundations/`, `agent-plugin-authori
 
 ## Scope and package boundaries
 
-Use `project-foundations` as the shared foundation. Create separate plugins for platform or domain conventions, such as web development, iOS development, or a deployment environment. A specialist plugin must remain useful on its own because the portable Agent Plugins format does not define cross-plugin dependencies.
+Use `foundations.project` as the shared, technology-neutral base. Use `foundations.web` for browser-specific work and `foundations.authoring` for plugin packaging. Create separate plugins for other platform or domain conventions, such as iOS development or a deployment environment. A specialist plugin must remain useful on its own because the portable Agent Plugins format does not define cross-plugin dependencies.
 
 ## Versioning and contribution
 

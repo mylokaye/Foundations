@@ -1,18 +1,18 @@
 {
-  "name": "agent-plugin-authoring",
+  "name": "foundations.authoring",
   "version": "0.1.0",
   "description": "Guidance for creating portable, maintainable Agent Plugins.",
   "author": {
-    "name": "Project Foundations contributors"
+    "name": "Foundations contributors"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "Agent Plugin Authoring",
+    "displayName": "Foundations: Authoring",
     "shortDescription": "Create portable, reusable Agent Plugins.",
     "longDescription": "Agent Plugin Authoring provides a repeatable workflow for portable manifests, Codex metadata, skills, validation, and release readiness.",
-    "developerName": "Project Foundations contributors",
+    "developerName": "Foundations contributors",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Create a reusable Agent Plugin for this workflow."
+    "defaultPrompt": "Apply Foundations: Authoring to this reusable plugin workflow."
   }
 }

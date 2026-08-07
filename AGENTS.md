@@ -1,4 +1,4 @@
-# Project Foundations authoring rules
+# Foundations authoring rules
 
 Each first-level package directory is a plugin root. Keep its portable Agent Plugins manifest at `plugin.json` and Codex adapter metadata at `.codex-plugin/plugin.json`.
 

@@ -1,18 +1,18 @@
 {
-  "name": "project-foundations",
+  "name": "foundations.project",
   "version": "0.1.0",
   "description": "Opinionated, technology-neutral principles for project delivery.",
   "author": {
-    "name": "Project Foundations contributors"
+    "name": "Foundations contributors"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Project Foundations",
     "shortDescription": "Establish consistent project delivery practices.",
     "longDescription": "Project Foundations provides reusable documentation, design, accessibility, privacy, verification, and delivery practices.",
-    "developerName": "Local developer",
+    "developerName": "Foundations contributors",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Apply Project Foundations to this project."
+    "defaultPrompt": "Apply Foundations: Project to this project."
   }
 }

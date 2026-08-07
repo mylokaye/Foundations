@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "agent-plugin-authoring",
+  "name": "foundations.authoring",
   "version": "0.1.0",
   "description": "Guidance for creating portable, maintainable Agent Plugins.",
   "author": {
-    "name": "Project Foundations contributors"
+    "name": "Foundations contributors"
   },
   "repository": "https://github.com/mylokaye/project-foundations",
   "license": "MIT",

@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "project-foundations",
+  "name": "foundations.project",
   "version": "0.1.0",
   "description": "Opinionated, technology-neutral principles for project delivery.",
   "author": {
-    "name": "Project Foundations contributors"
+    "name": "Foundations contributors"
   },
   "repository": "https://github.com/mylokaye/project-foundations",
   "license": "MIT",
