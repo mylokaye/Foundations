@@ -6,6 +6,7 @@
   "author": {
     "name": "Project Foundations contributors"
   },
+  "repository": "https://github.com/mylokaye/project-foundations",
   "license": "MIT",
   "keywords": [
     "documentation",

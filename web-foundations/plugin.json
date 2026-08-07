@@ -1,18 +1,18 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "agent-plugin-authoring",
+  "name": "web-foundations",
   "version": "0.1.0",
-  "description": "Guidance for creating portable, maintainable Agent Plugins.",
+  "description": "Framework-neutral foundations for maintainable HTML, CSS, and browser JavaScript.",
   "author": {
     "name": "Project Foundations contributors"
   },
   "repository": "https://github.com/mylokaye/project-foundations",
   "license": "MIT",
   "keywords": [
-    "agent-plugins",
-    "skills",
-    "mcp",
-    "plugin-authoring",
-    "validation"
+    "html",
+    "css",
+    "javascript",
+    "accessibility",
+    "web-development"
   ]
 }

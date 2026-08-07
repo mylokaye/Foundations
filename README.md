@@ -10,17 +10,18 @@ Portable, opinionated Agent Plugins for consistent project delivery and future p
 | --- | --- | --- |
 | [`project-foundations`](project-foundations/) | Technology-neutral practices for documentation, design, accessibility, privacy, verification, and scoped delivery. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/project-foundations) |
 | [`agent-plugin-authoring`](agent-plugin-authoring/) | A focused workflow for creating, validating, and releasing portable Agent Plugins. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/agent-plugin-authoring) |
+| [`web-foundations`](web-foundations/) | Framework-neutral HTML, CSS, and browser JavaScript practices for maintainable web interfaces. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/web-foundations) |
 
 The packages intentionally keep universal practices separate from platform-specific implementation. They do not prescribe a frontend framework, native UI toolkit, cloud provider, or deployment system.
 
 ## Release status
 
-| Check | `project-foundations` | `agent-plugin-authoring` |
-| --- | --- | --- |
-| Package structure validated | Complete | Complete |
-| License | MIT | MIT |
-| Fresh-client installation smoke test | Pending | Pending |
-| Published release | Pending | Pending |
+| Check | `project-foundations` | `agent-plugin-authoring` | `web-foundations` |
+| --- | --- | --- | --- |
+| Package structure validated | Complete | Complete | Complete |
+| License | MIT | MIT | MIT |
+| Fresh-client installation smoke test | Pending | Pending | Pending |
+| Published release | Pending | Pending | Pending |
 
 These packages are available from this repository, but neither has yet been installed in a fresh supported client or published to a plugin catalog. Do not treat the GitHub source URL as a compatibility or publication claim until the pending smoke test has been completed.
 
@@ -32,7 +33,7 @@ Clone the repository, then select the individual package directory in the suppor
 git clone https://github.com/mylokaye/project-foundations.git
 ```
 
-Install one package at a time from either `project-foundations/` or `agent-plugin-authoring/`. The client-specific installation command will be added after it has been verified in a fresh client context.
+Install one package at a time from `project-foundations/`, `agent-plugin-authoring/`, or `web-foundations/`. The client-specific installation command will be added after it has been verified in a fresh client context.
 
 ## Included skills
 
@@ -48,6 +49,12 @@ Install one package at a time from either `project-foundations/` or `agent-plugi
 ### `agent-plugin-authoring`
 
 - `author-agent-plugins` — create and maintain portable Agent Plugins, including package boundaries, portable and Codex manifests, validation, and release readiness.
+
+### `web-foundations`
+
+- `semantic-html` — build accessible, resilient document and form structure with native HTML first, using comments only for non-obvious decisions.
+- `css-systems` — create maintainable responsive CSS through tokens, composition, and predictable states.
+- `browser-javascript` — organize browser-side behavior with explicit state, safe asynchronous work, and proportionate verification.
 
 ## Scope and package boundaries
 

@@ -8,6 +8,7 @@ All notable changes to this package are recorded here.
 
 - Package release policy, semantic versioning rules, and an explicit pending installation smoke test.
 - MIT licensing and portable manifest license metadata.
+- Canonical GitHub repository metadata in the portable manifest.
 
 ## [0.1.0] - 2026-08-07
 
