@@ -1,20 +1,42 @@
-# Agent Plugin Library
+# Project Foundations Agent Plugin Library
 
-This repository contains portable, opinionated Agent Plugins for consistent project delivery and future plugin authoring.
+Portable, opinionated Agent Plugins for consistent project delivery and future plugin authoring.
 
-The packages keep universal practices separate from platform-specific implementation plugins. They do not prescribe a frontend framework, native UI toolkit, cloud provider, or release system.
+[Repository](https://github.com/mylokaye/project-foundations) · [MIT License](LICENSE)
 
 ## Packages
 
-### `project-foundations`
+| Package | Purpose | Source |
+| --- | --- | --- |
+| [`project-foundations`](project-foundations/) | Technology-neutral practices for documentation, design, accessibility, privacy, verification, and scoped delivery. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/project-foundations) |
+| [`agent-plugin-authoring`](agent-plugin-authoring/) | A focused workflow for creating, validating, and releasing portable Agent Plugins. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/agent-plugin-authoring) |
 
-The reusable, technology-neutral foundation for project work. It contains:
+The packages intentionally keep universal practices separate from platform-specific implementation. They do not prescribe a frontend framework, native UI toolkit, cloud provider, or deployment system.
 
-- `plugin.json` — portable Agent Plugins v1 manifest.
-- `.codex-plugin/plugin.json` — Codex-specific presentation metadata.
-- `skills/` — independently discoverable Agent Skills.
+## Release status
+
+| Check | `project-foundations` | `agent-plugin-authoring` |
+| --- | --- | --- |
+| Package structure validated | Complete | Complete |
+| License | MIT | MIT |
+| Fresh-client installation smoke test | Pending | Pending |
+| Published release | Pending | Pending |
+
+These packages are available from this repository, but neither has yet been installed in a fresh supported client or published to a plugin catalog. Do not treat the GitHub source URL as a compatibility or publication claim until the pending smoke test has been completed.
+
+## Use from source
+
+Clone the repository, then select the individual package directory in the supported client's Git/source installation flow:
+
+```sh
+git clone https://github.com/mylokaye/project-foundations.git
+```
+
+Install one package at a time from either `project-foundations/` or `agent-plugin-authoring/`. The client-specific installation command will be added after it has been verified in a fresh client context.
 
 ## Included skills
+
+### `project-foundations`
 
 - `project-documentation` — establish and maintain useful project documentation and brief changelogs.
 - `design-principles` — apply clear, adaptable, consistent interface design.
@@ -25,25 +47,21 @@ The reusable, technology-neutral foundation for project work. It contains:
 
 ### `agent-plugin-authoring`
 
-The specialist package for creating and maintaining portable Agent Plugins. Its `author-agent-plugins` skill covers package boundaries, portable and Codex manifests, skill structure, validation, and release readiness.
+- `author-agent-plugins` — create and maintain portable Agent Plugins, including package boundaries, portable and Codex manifests, validation, and release readiness.
 
-## Scope
+## Scope and package boundaries
 
-Use `project-foundations` as a shared foundation. Create separate plugins for platform or domain conventions, such as web development, iOS development, or a deployment environment. A specialist plugin must remain useful on its own because the portable Agent Plugins format does not define cross-plugin dependencies.
+Use `project-foundations` as the shared foundation. Create separate plugins for platform or domain conventions, such as web development, iOS development, or a deployment environment. A specialist plugin must remain useful on its own because the portable Agent Plugins format does not define cross-plugin dependencies.
 
-## Ownership and licensing
-
-The package manifests identify `Project Foundations contributors` as the current owner. This repository and both packages are released under the [MIT License](LICENSE).
-
-## Versioning and release
+## Versioning and contribution
 
 - Keep portable and Codex manifest versions aligned for each package.
 - Use Semantic Versioning: patch for compatible corrections, minor for compatible skills or capabilities, and major for breaking changes.
 - Add material changes to the package's `CHANGELOG.md` under `Unreleased`; move them into a dated release section when its version is published.
 - Before release, validate the portable manifest, Codex manifest, and every changed skill.
-- Before claiming compatibility, install the package in a fresh client context and exercise a representative skill. This smoke test remains pending for both packages.
+- Before claiming compatibility, install the package in a fresh client context and exercise a representative skill.
 - State whether a package is local, installed, tested, published, or unverified in every handoff.
 
-## Development
+## License
 
-Keep each skill in an immediate `skills/<skill-name>/SKILL.md` directory. Do not add MCP configuration, assets, scripts, or client extensions unless a concrete skill needs them. Validate the package and every changed skill before release.
+Copyright © 2026 Mylo Kaye. This repository and both packages are released under the [MIT License](LICENSE).
