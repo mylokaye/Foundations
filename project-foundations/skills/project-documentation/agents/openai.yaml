@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project documentation"
+  short_description: "Keep project documentation accurate"
+  default_prompt: "Document this project's current state."

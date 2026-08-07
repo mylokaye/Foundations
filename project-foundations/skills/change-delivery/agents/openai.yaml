@@ -1,0 +1,4 @@
+interface:
+  display_name: "Change delivery"
+  short_description: "Deliver scoped work with clear evidence"
+  default_prompt: "Help me deliver this change safely."

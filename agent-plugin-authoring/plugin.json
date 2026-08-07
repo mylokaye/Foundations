@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agent-plugin-authoring",
+  "version": "0.1.0",
+  "description": "Guidance for creating portable, maintainable Agent Plugins.",
+  "author": {
+    "name": "Project Foundations contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "agent-plugins",
+    "skills",
+    "mcp",
+    "plugin-authoring",
+    "validation"
+  ]
+}

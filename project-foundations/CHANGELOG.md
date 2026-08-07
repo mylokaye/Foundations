@@ -1,0 +1,17 @@
+# Changelog
+
+All notable changes to this package are recorded here.
+
+## [Unreleased]
+
+### Added
+
+- Package release policy, semantic versioning rules, and an explicit pending installation smoke test.
+- MIT licensing and portable manifest license metadata.
+
+## [0.1.0] - 2026-08-07
+
+### Added
+
+- Initial portable Project Foundations package with documentation, design, accessibility, privacy, verification, and delivery skills.
+- A documentation rule requiring brief dated changelog entries for material project changes.

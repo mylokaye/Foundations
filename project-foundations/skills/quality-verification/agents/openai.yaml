@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quality verification"
+  short_description: "Verify changes with meaningful evidence"
+  default_prompt: "Plan verification for this project change."

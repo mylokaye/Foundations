@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design principles"
+  short_description: "Apply clear adaptable interface design"
+  default_prompt: "Review this experience against design principles."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility"
+  short_description: "Build inclusive usable experiences"
+  default_prompt: "Review this change for accessibility."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Privacy and data"
+  short_description: "Protect data secrets and consent"
+  default_prompt: "Review this feature's privacy and data boundaries."

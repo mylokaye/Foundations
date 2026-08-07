@@ -1,0 +1,4 @@
+interface:
+  display_name: "Author Agent Plugins"
+  short_description: "Create portable reusable Agent Plugins"
+  default_prompt: "Create a reusable Agent Plugin for this workflow."

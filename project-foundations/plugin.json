@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "project-foundations",
+  "version": "0.1.0",
+  "description": "Opinionated, technology-neutral principles for project delivery.",
+  "author": {
+    "name": "Project Foundations contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "design",
+    "accessibility",
+    "privacy",
+    "verification"
+  ]
+}
