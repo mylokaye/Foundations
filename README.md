@@ -1,4 +1,4 @@
-![Foundations Agent Plugin Library](https://repository-images.githubusercontent.com/1326295889/ea5259b7-bc73-454b-8f82-f48e11bd4f61)
+![Foundations Agent Plugin Library](https://repository-images.githubusercontent.com/1326295889/9d14df65-0c3f-4808-9e6c-b9f21e3185cd)
 
 # Foundations Agent Plugin Library
 
