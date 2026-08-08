@@ -13,19 +13,20 @@ Portable, opinionated Agent Plugins for consistent project delivery and future p
 | [`foundations.project`](project/) | Technology-neutral practices for documentation, design, accessibility, privacy, verification, and scoped delivery. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/project) |
 | [`foundations.authoring`](authoring/) | A focused workflow for creating, validating, and releasing portable Agent Plugins. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/authoring) |
 | [`foundations.web`](web/) | Framework-neutral HTML, CSS, and browser JavaScript practices for maintainable web interfaces. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/web) |
+| [`foundations.javascript-static-review`](javascript-static-review/) | Focused static review for JavaScript, TypeScript, React, Next.js, and browser extension changes. | [GitHub](https://github.com/mylokaye/project-foundations/tree/main/javascript-static-review) |
 
 The packages intentionally keep universal practices separate from platform-specific implementation. They do not prescribe a frontend framework, native UI toolkit, cloud provider, or deployment system.
 
 ## Release status
 
-| Check | `foundations.project` | `foundations.authoring` | `foundations.web` |
-| --- | --- | --- | --- |
-| Package structure validated | Complete | Complete | Complete |
-| License | MIT | MIT | MIT |
-| Fresh-client installation smoke test | Pending | Pending | Pending |
-| Published release | Pending | Pending | Pending |
+| Check | `foundations.project` | `foundations.authoring` | `foundations.web` | `foundations.javascript-static-review` |
+| --- | --- | --- | --- | --- |
+| Package structure validated | Complete | Complete | Complete | Complete |
+| License | MIT | MIT | MIT | MIT |
+| Fresh-client installation smoke test | Pending | Pending | Pending | Pending |
+| Published release | Pending | Pending | Pending | Pending |
 
-These packages are available from this repository, but neither has yet been installed in a fresh supported client or published to a plugin catalog. Do not treat the GitHub source URL as a compatibility or publication claim until the pending smoke test has been completed.
+These packages are available from this repository, but none has yet been installed in a fresh supported client or published to a plugin catalog. Do not treat the GitHub source URL as a compatibility or publication claim until the pending smoke test has been completed.
 
 ## Use from source
 
@@ -35,7 +36,7 @@ Clone the repository, then select the individual package directory in the suppor
 git clone https://github.com/mylokaye/project-foundations.git
 ```
 
-Install one package at a time from `project/`, `authoring/`, or `web/`. The client-specific installation command will be added after it has been verified in a fresh client context.
+Install one package at a time from `project/`, `authoring/`, `web/`, or `javascript-static-review/`. The client-specific installation command will be added after it has been verified in a fresh client context.
 
 ## Included skills
 
@@ -58,9 +59,13 @@ Install one package at a time from `project/`, `authoring/`, or `web/`. The clie
 - `css-systems` — create maintainable responsive CSS through tokens, composition, and predictable states.
 - `browser-javascript` — organize browser-side behavior with explicit state, safe asynchronous work, and proportionate verification.
 
+### `foundations.javascript-static-review`
+
+- `javascript-static-review` — review JavaScript, TypeScript, React, Next.js, and browser extension changes for runtime, security, async/state, import, and compatibility defects.
+
 ## Scope and package boundaries
 
-Use `foundations.project` as the shared, technology-neutral base. Use `foundations.web` for browser-specific work and `foundations.authoring` for plugin packaging. Create separate plugins for other platform or domain conventions, such as iOS development or a deployment environment. A specialist plugin must remain useful on its own because the portable Agent Plugins format does not define cross-plugin dependencies.
+Use `foundations.project` as the shared, technology-neutral base. Use `foundations.web` for browser-specific work, `foundations.javascript-static-review` for JavaScript-family implementation and review work, and `foundations.authoring` for plugin packaging. Create separate plugins for other platform or domain conventions, such as iOS development or a deployment environment. A specialist plugin must remain useful on its own because the portable Agent Plugins format does not define cross-plugin dependencies.
 
 ## Versioning and contribution
 
