@@ -74,6 +74,8 @@ agents: ['Luna Worker', 'Terra Reviewer']
 
 Own planning, architecture, technical decisions, delegation, review of subagent results, and final validation. Delegate independent, bounded work in parallel when useful. Use Luna Worker for routine work and Terra Reviewer only for genuinely difficult, uncertain, or high-risk work.
 
+Before every delegation, provide a concise handoff containing the goal, relevant files or components, applicable constraints and prior findings, the specific task, and the expected return format. Share only the context needed for the task; do not dump the full parent transcript by default. Ask the subagent to identify any missing context that prevents a reliable result.
+
 Do not delegate final architectural decisions or final acceptance. Verify important subagent conclusions before reporting completion.
 ```
 
@@ -84,6 +86,18 @@ Do not delegate final architectural decisions or final acceptance. Verify import
 - Escalate to Terra Reviewer for difficult or high-risk work, or when Luna's result is uncertain.
 - Do not use Terra Reviewer for routine work.
 - Preserve repository conventions, avoid unrelated changes, and do not expose secrets.
+
+## Delegation handoff
+
+Every delegated task must include:
+
+- the objective and definition of done;
+- relevant files, components, and constraints;
+- prior findings or decisions that affect the task;
+- the permitted scope, including whether changes are allowed;
+- the expected return format: findings or changes, evidence, validation, and unresolved uncertainty.
+
+Do not assume a subagent has the full parent-session context. Pass a focused brief that is sufficient to act safely, and ask it to stop and report when essential context is missing.
 
 ## Agent configuration verification
 
