@@ -2,129 +2,151 @@
 
 ## Purpose
 
-This repository uses a lightweight, portable multi-agent workflow for Codex. This file is the source of truth for the workflow; Codex-specific custom-agent definitions live in `.codex/agents/`.
+This repository uses a lightweight, role-focused multi-agent workflow for
+Codex. Functional responsibilities are stable; configured models and reasoning
+levels are replaceable defaults rather than agent identities.
 
-Roles:
-
-- **Sol Coordinator** — planning, architecture, technical decisions, delegation, review, and final validation.
-- **Luna Worker** — routine, bounded implementation and investigation.
-- **Terra Reviewer** — difficult, high-risk, or uncertain implementation, debugging, and review.
-
-The configured models and reasoning levels are preferences. Use them only when available in the current Codex environment. Never claim that a requested model was used when Codex substituted another model.
-
-## Bootstrap before substantial work
-
-1. Inspect `.codex/agents/`, `.codex/config.toml`, and existing repository instructions.
-2. Do not overwrite existing agent files. Inspect and preserve them unless the current task explicitly authorizes a correction.
-3. Create only the missing files listed below.
-4. If an expected model is unavailable, report it as unavailable and do not represent fallback model selection as a passing check.
-5. After creating or changing agent configuration, complete the verification procedure before normal development work.
-
-The expected files are:
+The live custom-agent definitions are in `~/.codex/agents/`. The expected role
+files are:
 
 ```text
-.codex/
+~/.codex/
 └── agents/
-    ├── sol-coordinator.toml
-    ├── luna-worker.toml
-    └── terra-reviewer.toml
+    ├── understand.toml
+    ├── architect.toml
+    ├── builder.toml
+    ├── tester.toml
+    ├── verifier.toml
+    └── reviewer.toml
 ```
 
-## Required Codex agent definitions
+Do not add model providers or other strings under an `[agents]` table. In the
+current supported schema, each role is a standalone TOML file with top-level
+agent fields. Keep `model_provider` in the main Codex configuration if it is
+needed there; do not copy it into an agent registry.
 
-Create `.codex/agents/luna-worker.toml` when missing:
+## Functional roles
 
-```toml
-name = "luna_worker"
-description = "Routine implementation and investigation worker for clear, bounded tasks."
-model = "gpt-5.6-luna"
-model_reasoning_effort = "medium"
+- **Understand** investigates requirements, repository structure, dependencies,
+  existing implementation, constraints, ambiguity, and missing context before
+  architecture begins.
+- **Architect** produces the implementation approach and decides sequencing,
+  affected areas, boundaries, risks, and verification needs without doing
+  unnecessary implementation.
+- **Builder** implements the approved work and stays focused on implementation.
+  Its report is a handoff, not acceptance or review.
+- **Tester** runs relevant tests, creates or extends focused tests when
+  appropriate, actively looks for breakage and edge cases, and answers:
+  **Does the implementation work?**
+- **Verifier** independently compares meaningful Builder work with every
+  original requirement and answers: **Did we build what was requested,
+  completely and correctly?**
+- **Reviewer** performs a fresh final independent review of the original
+  requirements, finished diff, repository context, and test, verification, and
+  parent-inspection evidence.
 
-developer_instructions = """
-Perform bounded implementation and investigation tasks. Use this role for HTML, CSS, Tailwind, straightforward JavaScript, tests, documentation, repository exploration, simple refactors, repetitive changes, and independent investigations.
+## Orchestration workflow
 
-Keep changes focused and minimal. Do not make architectural decisions unless explicitly asked. Return concise findings, changed files, verification performed, and any uncertainty to the parent agent.
-"""
-```
-
-Create `.codex/agents/terra-reviewer.toml` when missing:
-
-```toml
-name = "terra_reviewer"
-description = "Escalation agent for difficult implementation, debugging, and high-risk review."
-model = "gpt-5.6-terra"
-model_reasoning_effort = "high"
-sandbox_mode = "read-only"
-
-developer_instructions = """
-Use stronger reasoning for difficult JavaScript or TypeScript, non-obvious bugs, complex state or data flow, security-sensitive behaviour, architectural problems, repeated failed attempts, and high-risk code review.
-
-Find the root cause before recommending changes. Prefer minimal, defensible fixes. Return findings, evidence, risks, and recommended actions to the parent agent. Do not modify files unless the parent explicitly changes this agent's permitted scope.
-"""
-```
-
-Create `.codex/agents/sol-coordinator.toml` when missing:
-
-```toml
-name = "sol_coordinator"
-description = "Primary technical coordinator for planning, delegation, and final review."
-model = "gpt-5.6"
-model_reasoning_effort = "xhigh"
-
-developer_instructions = """
-Own planning, architecture, technical decisions, delegation, review of subagent results, and final validation. Delegate independent, bounded work in parallel when useful. Use luna_worker for routine work and terra_reviewer only for genuinely difficult, uncertain, or high-risk work.
-
-Before every delegation, provide a concise handoff containing the goal, relevant files or components, applicable constraints and prior findings, the specific task, and the expected return format. Share only the context needed for the task; do not dump the full parent transcript by default. Ask the subagent to identify any missing context that prevents a reliable result.
-
-Do not delegate final architectural decisions or final acceptance. Verify important subagent conclusions before reporting completion.
-"""
-```
-
-## Routing and delegation rules
-
-- Keep planning, architecture, coordination, and final review with Sol Coordinator.
-- Use Luna Worker by default for routine bounded work.
-- Escalate to Terra Reviewer for difficult or high-risk work, or when Luna's result is uncertain.
-- Do not use Terra Reviewer for routine work.
-- Prefer parallel delegation for independent, read-heavy tasks. Coordinate write-heavy work carefully to avoid conflicts.
-- Preserve repository conventions, avoid unrelated changes, and do not expose secrets.
-
-Every delegated task must include:
-
-- the objective and definition of done;
-- relevant files, components, and constraints;
-- prior findings or decisions that affect the task;
-- the permitted scope, including whether changes are allowed;
-- the expected return format: findings or changes, evidence, validation, and unresolved uncertainty.
-
-Do not assume a subagent has the full parent-session context. Pass a focused brief that is sufficient to act safely, and ask it to stop and report when essential context is missing.
-
-## Agent configuration verification
-
-After creating or modifying the configuration, do not assume it works just because the files exist.
-
-1. Inspect every `.codex/agents/*.toml` file.
-2. Validate each TOML file and confirm it defines `name`, `description`, and `developer_instructions`.
-3. Confirm Luna specifies `gpt-5.6-luna` with `medium` reasoning, Terra specifies `gpt-5.6-terra` with `high` reasoning, and Sol specifies `gpt-5.6` with `xhigh` reasoning.
-4. Confirm the parent environment has multi-agent workflows enabled and can spawn the requested custom agents.
-5. Run a harmless live delegation test without modifying application code:
-   - Luna Worker: inspect the repository's markup or, if none exists, its primary source structure.
-   - Terra Reviewer: inspect the most complex JavaScript/TypeScript file or, if none exists, the most complex source file.
-6. Require each subagent to report its agent name, model actually used (if exposed), reasoning level (if exposed), task performed, and result.
-7. If the environment cannot invoke an agent or expose its model, report that limitation as `FAIL` or `NOT VERIFIABLE`; do not silently pass it.
-
-Report exactly this summary:
+For meaningful implementation, use:
 
 ```text
-AGENT SYSTEM VERIFICATION
--------------------------
-Configuration files: PASS/FAIL
-Sol Coordinator: PASS/FAIL
-Luna Worker: PASS/FAIL
-Terra Reviewer: PASS/FAIL
-Delegation: PASS/FAIL
-Model selection: PASS/FAIL/NOT VERIFIABLE
-Notes: <concise explanation of failures, substitutions, or limitations>
+Understand -> Architect -> Builder -> Tester -> Verifier -> parent verification -> Reviewer
 ```
 
-If verification fails, diagnose and report the failure before proceeding. Do not modify application code during the verification test.
+Meaningful Builder work must not skip Verifier. Builder success is never enough
+to declare completion. Before starting the final Reviewer, the parent must
+inspect the actual diff and available test and verification evidence. The final
+Reviewer must be a fresh, independent, read-only instance and must not rely on
+the Builder's reasoning or self-assessment.
+
+Use proportional orchestration for trivial work such as a typo or harmless
+documentation correction. Such work does not require six-agent ceremony, but it
+still needs risk-appropriate parent inspection. Do not classify a change as
+trivial merely to avoid verification.
+
+When Reviewer finds a problem, route the finding to the role appropriate for
+diagnosis or design, then run the remediation through:
+
+```text
+Reviewer finding -> Builder -> Tester -> Verifier -> parent verification -> NEW Reviewer
+```
+
+The Reviewer that raised a finding must not approve its own remediation. Always
+use a new Reviewer instance after the fix and validation chain.
+
+## Delegation and parallelism
+
+Delegate by role, never by model name. Every handoff must include:
+
+- the functional role, objective, and definition of done;
+- relevant requirements, files or components, constraints, and prior findings;
+- decisions already made and any boundaries that must not change;
+- whether edits are permitted and the exact ownership scope;
+- expected evidence and return format; and
+- an instruction to stop and report if essential context is missing.
+
+Share only the context needed for the assigned work. Allow parallel subagents
+only for genuinely independent workstreams, such as separate frontend, test,
+documentation, or configuration investigation. Do not parallelize tightly
+coupled implementation. The parent must synthesize all parallel findings before
+architecture or implementation decisions continue.
+
+## Capability escalation and failure handling
+
+Every role must escalate when it is blocked, confidence is low, the task is
+materially more complex than expected, architectural judgment is required,
+repeated attempts are not making progress, or assigned capability is
+insufficient. Do not repeat the same failing approach at the same capability:
+
+```text
+efficient capability -> stronger general capability -> highest-capability reasoning
+```
+
+Keep the workflow expressed in roles. Capability escalation may select a
+different model, but the replacement must act as the same functional role under
+the same instructions and permissions.
+
+Fail closed when a required role cannot spawn or its configured model is
+unavailable. Report the failure explicitly. Use only an explicitly permitted
+general-purpose fallback acting as the same role. A fallback for Verifier or
+Reviewer must be a fresh, independent, read-only instance. If no permitted
+fallback is available, stop; never claim the missing test, verification, or
+review step occurred.
+
+## Current model defaults
+
+These defaults are implementation details and may be replaced without changing
+the workflow:
+
+| Role | Preferred model | Reasoning | Sandbox |
+| --- | --- | --- | --- |
+| Understand | `gpt-5.6-terra` | `high` | `read-only` |
+| Architect | `gpt-5.6-sol` | `xhigh` | `read-only` |
+| Builder | `gpt-5.6-terra` | `high` | inherit |
+| Tester | `gpt-5.6-terra` | `high` | inherit |
+| Verifier | `gpt-5.6-sol` | `high` | `read-only` |
+| Reviewer | `gpt-5.6-sol` | `xhigh` | `read-only` |
+
+Model availability or substitution must be reported honestly. Do not claim a
+preferred model was used unless the current environment exposes evidence for it.
+
+## Configuration validation
+
+After creating or changing the agent configuration:
+
+1. Parse the main configuration and every role TOML file.
+2. Confirm each role defines `name`, `description`, `model`,
+   `model_reasoning_effort`, and `developer_instructions` using fields supported
+   by the installed Codex version.
+3. Confirm read-only roles declare `sandbox_mode = "read-only"` and writable
+   roles inherit the parent sandbox rather than weakening it.
+4. Confirm Codex starts without configuration errors and all six roles load.
+5. Run harmless controlled delegation scenarios for the proportional trivial
+   path, normal workflow, capability escalation, and Reviewer remediation loop.
+6. Record actual spawn, model-selection, test, verification, and review evidence.
+   Mark anything the environment cannot expose as `NOT VERIFIABLE`; never infer a
+   pass merely from file presence.
+7. Confirm no obsolete model-branded definitions or routing references remain
+   unintentionally and that useful global and repository safeguards were kept.
+
+Do not modify application code during configuration-only validation scenarios.
