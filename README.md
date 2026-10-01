@@ -1,4 +1,4 @@
-![Foundations Agent Plugin Library](https://repository-images.githubusercontent.com/1326295889/9d14df65-0c3f-4808-9e6c-b9f21e3185cd)
+![Foundations — Portable, opinionated Agent Plugins](images/foundations-agent-plugins-banner.jpg)
 
 # Foundations Agent Plugin Library
 
